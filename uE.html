@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Unicorn Evolution</title>
+    <link rel="stylesheet" href="uE.css">
+	<script src="uE.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Niconne&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="images/mini.ico" type="image/x-icon"/>
+  </head>
+  
+  <body>
+    <!-- page content -->
+	
+    <div id="container">
+      
+    <!-- title screen -->  
+	  <div id="title" class="unhidden" onclick="change(0),change(1)">
+	    <div class="uE">Unicorn Evolution</div>
+		  <img src="images/unicorn.png" id="tUni" alt="unicorn">
+	  	<div id="cont"> Click anywhere to continue</div>
+	  </div>
+	  
+	  <!-- menu screen -->
+	  <div id="menu" class="hidden">
+	    <div class="uE">Unicorn Evolution</div>
+	    <div class="tButton" id="B1" onclick="change(1),change(4)">Start Game</div>
+	    <div class="tButton" id="B2" onclick="change(1),change(2)">Instructions</div>
+		<div class="tButton" id="B4" onclick="change(1),change(3)">Credits</div>
+	  </div>
+	  
+	  <!-- instructions screen -->
+	  <div id="instructions" class="hidden">
+	    <div class="back" onclick="change(2),change(1)">Back</div>
+		<h3>Instructions</h3>
+		<p> Welcome, young horse enthusiast! <br><br><br>To start, buy horses at the top of gameplay. <br><br> To evolve your horses into a greater form, drag two of the same breed together. See how many new horse breeds you can find! <br><br> You will win the game when the final horse has been reached. Good luck!
+		<br><br><br>The controls for the background music are at the bottom left of your screen. <br>Note: In some browsers you will have to manually start the background music.
+		<br><br><br><br>This game works in Chrome, Edge, Opera, and Firefox. This game does not work in Internet Explorer.
+		</p>
+	  </div>
+	  
+	  <!-- credits screen -->
+	  <div id="credits" class="hidden">
+	    <div class="back" onclick="change(3),change(1)">Back</div>
+		<h3>Credits</h3>
+		<p> Code by Anna M. and Shiraz E. <br><br>
+		Horse art by Jaqi H. and Kate M. (Anna's sister). All other art made by Anna M.<br><br>
+		Special thanks to Trista D. for all her help and Margaret K. as well. <br><br>
+		Background music: <a href="https://www.bensound.com">bensound.com</a> "tenderness".
+		</p>
+	  </div>
+	  
+	  <!-- win screen -->
+	  <div id="win" class="hidden">
+	    <div class="back" onclick="change(5),change(1), reset()">Menu</div>
+		<h3>Congradulations! You Win!!!</h3>
+		<p> You evolved your horse to its highest form, pure magic. To play the game again, return to the menu. </p>
+		<img id="rainbow" src="images/rainbow.gif" alt="rainbow">
+	  </div>
+	  
+	  <!-- game screen -->
+	  <div id="play" class="hidden">
+		<img id="mini1" class="hidden" src="images/mini.png" alt="Mini 1" onmousedown="getId('mini1')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 0)" ondragover="allowDrop(event, 'mini1')">
+		<img id="mini2" class="hidden" src="images/mini.png" alt="Mini 2" onmousedown="getId('mini2')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 0)" ondragover="allowDrop(event, 'mini2')">
+		
+		<img id="welsh1" class="hidden" src="images/welsh.png" alt="Welsh 1" onmousedown="getId('welsh1')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 1)" ondragover="allowDrop(event, 'welsh1')">
+		<img id="welsh2" class="hidden" src="images/welsh.png" alt="Welsh 2" onmousedown="getId('welsh2')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 1)" ondragover="allowDrop(event, 'welsh2')">
+		
+		<img id="arabian1" class="hidden" src="images/arabian.png" alt="Arabian 1" onmousedown="getId('arabian1')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 2)" ondragover="allowDrop(event, 'arabian1')">
+		<img id="arabian2" class="hidden" src="images/arabian.png" alt="Arabian 2" onmousedown="getId('arabian2')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 2)" ondragover="allowDrop(event, 'arabian2')">
+		
+		<img id="friesian1" class="hidden" src="images/friesian.png" alt="Friesian 1" onmousedown="getId('friesian1')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 3)" ondragover="allowDrop(event, 'friesian1')">
+		<img id="friesian2" class="hidden" src="images/friesian.png" alt="Friesian 2" onmousedown="getId('friesian2')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 3)" ondragover="allowDrop(event, 'friesian2')">
+		
+		<img id="clydesdale1" class="hidden" src="images/clydesdale.png" alt="Clydesdale 1" onmousedown="getId('clydesdale1')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 4)" ondragover="allowDrop(event, 'clydesdale1')">
+		<img id="clydesdale2" class="hidden" src="images/clydesdale.png" alt="Clydesdale 2" onmousedown="getId('clydesdale2')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 4)" ondragover="allowDrop(event, 'clydesdale2')">
+		
+		<img id="unicorn1" class="hidden" src="images/unicorn.png" alt="Unicorn 1" onmousedown="getId('unicorn1')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 5)" ondragover="allowDrop(event, 'unicorn1')">
+		<img id="unicorn2" class="hidden" src="images/unicorn.png" alt="Unicorn 2" onmousedown="getId('unicorn2')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 5)" ondragover="allowDrop(event, 'unicorn2')">
+		
+		<img id="alicorn1" class="hidden" src="images/alicorn.png" alt="Alicorn 1" onmousedown="getId('alicorn1')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 6)" ondragover="allowDrop(event, 'alicorn1')">
+		<img id="alicorn2" class="hidden" src="images/alicorn.png" alt="Alicorn 2" onmousedown="getId('alicorn2')" draggable="true" ondragstart="drag(event)" ondrop="drop(event, 6)" ondragover="allowDrop(event, 'alicorn2')">
+		
+		<img id="magic" class="hidden" src="images/magic.png" alt="Magic">
+		
+		<!-- top bar -->
+		<div id="topBar">
+		  <div class="tButton" id="B3" onclick="spawn()">Buy Horse</div>
+		  <div id="money">Money: $1000</div>
+		  <div id="inst">Drag two horses of the same breed together to evolve.<br>Horses cost $300</div>
+		</div>
+		
+		<!-- bottom bar for error messages -->
+		<div id="botBar" class="hidden">
+		  <div id="message"></div>
+		  <div id="clsButton" onclick="toggleView('botBar')">&times;</div>
+		</div>
+		
+	  </div>
+	</div>
+	<!-- background music -->
+	<audio autoplay controls loop>
+      <source src="images/bMusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+  </body>
+  
+</html>
